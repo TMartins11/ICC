@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Autores" content="Thiago Martins e Pedro Finochio">
+    <meta name="Descrição"
+        content="Este site visa ensinar ao usuário como utilizar o sistema de controle de versões git e seus principais comandos.">
+    <title>Git Tutorial</title>
+    <link rel="icon" href="giticon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="main.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <h1>Git Tutorial</h1>
+
+        <hr>
+
+        <nav aria-label="Menu primário de Navegação">
+            <h2>Tópicos:</h2>
+            <ul>
+                <li><a href="#historiagit">O que é Git</a></li>
+                <li><a href="#principaiscomandos">Principais Comandos</a></li>
+                <li><a href="#tutorialemvideo">Tutorial em Vídeo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <article id="historiagit">
+            <h2>O que é o Git</h2>
+            <p>Antes de explicarmos efetivamente como usar o nosso querido git, vamos a uma breve explicação do que
+                é
+                esse
+                sistema:</p>
+            <ul>
+                <li>
+                    <p>Git é um sistema de controle de versões gratuito e de código aberto.</p>
+                <li>
+                    <p>É amplamente usado em todo o mundo, devido a facilidade que proporciona aos desenvolvedores,
+                        possibilitando,
+                        graças ao seu armazenamento na nuvem,
+                        o trabalho de inúmeras pessoas em um mesmo projeto simultaneamente.</p>
+                </li>
+
+                <li>
+                    <p>Foi criado em 2005 por Linus Torvalds, o também fundador
+                        dos sistemas operacionais Linux.</p>
+                </li>
+            </ul>
+
+            <br>
+
+            <figure>
+                <div class="alinhar">
+                    <img src="img/linus.jpeg" alt="Linus Torvalds" title="Linus Torvalds" width="300" height="300"
+                        loading="eager">
+
+                    <img src="img/git.png" alt="Logo do Git" title="Logo do Git" width="300" height="300"
+                        loading="eager">
+                </div>
+            </figure>
+
+            <div class="captions">
+                <p>Linus Torvalds - O Pai do Git</p>
+                <div class="c2">
+                    <p>Logo do sistema de controle de versões Git</p>
+                </div>
+            </div>
+
+            <ul>
+                <li>
+                    <p><a href="audio.html">Conheça mais sobre as motivações para o uso do Git - (Áudio)</a></p>
+                </li>
+            </ul>
+        </article>
+
+        <hr>
+
+        <article id="principaiscomandos">
+            <h2>Principais Comandos</h2>
+            <nav aria-label="Menu Secundário de Navegação">
+                <ul>
+                    <li><a href="#config_iniciais">Configurações Iniciais</a></li>
+                    <li><a href="#seuprimeirorepositorio">Criando seu Primeiro Repositório</a></li>
+                    <li><a href="#controlederep">Controle de Repositório/ Repositório Remoto</a></li>
+                    <li><a href="#utilitarios">Utilitários</a></li>
+                </ul>
+            </nav>
+
+            <hr>
+
+            <section id="config_iniciais">
+                <ul>
+                    <li>
+                        <h3>Configurações iniciais</h3>
+                    </li>
+                </ul>
+
+                <div class="container">
+                    <p>Antes de começarmos a utilizar o sistema de controle de versões Git, é essencial fazer algumas
+                        Configurações iniciais.</p>
+                </div>
+
+                <dl>
+                    <div class="container">
+                        <dt>1 - <b>git config</b></dt>
+
+                        <dd>
+                            O comando git config é utilizado no sistema de controle de versões para <b>configurar opções
+                                específicas do usuário, repositório ou sistema</b>. É importante que o seu nome de
+                            usuário e e-mail estejam configurados de forma correta a fim de facilitar a comunicação
+                            durante a realização de um projeto no Git.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitconfig.png" alt="Exemplo Git Config" title="Exemplo Git Config" width="549"
+                        height="171" loading="lazy">
+                </figure>
+
+
+                <div class="container">
+                    <small>*Além da configuração padrão do username e e-mail, é boa prática trocar o nome da branch
+                        padrão de master para main, visto que é a norma utilizada atualmente.</small>
+
+                    <p>
+                        É importante ressaltar que o comando <b>git config pode ser usado para fazer configurações
+                            específicas a um repositório, ou para o âmbito global da sua máquina</b>. A opção --global é
+                        o que faz a configuração escolhida atuar para todos os repositórios, sem ele, as mudanças são
+                        locais.Também vale lembrar as diversas funcionalidade do comando, podendo ser usado para listar
+                        as configurações atuais com --list, pode ser usado também com --get, afim de emitir algum desses
+                        tópicos individualmente, dentre outras funções que você pode conferir com a execução do próximo
+                        comando da nossa lista.
+                    </p>
+
+
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="seuprimeirorepositorio">
+                <ul>
+                    <li>
+                        <h3>Criando seu Primeiro Repositório Git</h3>
+                    </li>
+                </ul>
+
+                <dl>
+                    <div class="container">
+                        <dt>1 - <b>git init</b></dt>
+
+                        <dd>
+                            Este comando <b>cria um repositório vazio na pasta em que foi executado</b>, onde <i>o Git
+                                começa a acompanhar todas as mudanças que você faz nos arquivos dentro dessa pasta</i>,
+                            permitindo que você controle o histórico das alterações,volte para versões anteriores e
+                            trabalhe de forma colaborativa com outras pessoas.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitinit.png" alt="Exemplo do comando git init" title="Exemplo do comando git init"
+                        width="620" height="244" loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>2- <b>git status</b></dt>
+                        <dd>
+                            Este comando tem a função de <b>mostrar o estado atual do repositório Git</b>, exibindo
+                            informações sobre arquivos modificados, novos arquivos, arquivos prontos para serem
+                            adicionados ao próximo commit e outras informações relevantes para o controle de versão.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitstatus.png" alt="Exemplo do comando git status"
+                        title="Exemplo do comando git status" width="891" height="201" loading="lazy">
+                </figure>
+
+                <details>
+                    <summary>Observação:</summary>
+                    <p>
+                        Note que, mesmo após a inicialização do repositório Git, o arquivo que criamos
+                        <mark>ainda não está sendo monitorado</mark> pelo sistema de controle de versões.
+                    </p>
+                </details>
+
+                <dl>
+                    <div class="container">
+                        <dt>3 - <b>git add</b></dt>
+                        <dd>
+                            Este comando tem a função de <b>adicionar arquivos ao sistema de controle de versões</b>,
+                            após adicionados, <i>o Git irá monitorar todas as mudanças ocorridas</i> desde o último
+                            commit realizado, também é utilizado para "programar" mudanças nos arquivos antes de
+                            adicioná-los ao repositório remoto com mais um commit.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitadd.png" alt="Exemplo do comando git add" title="Exemplo do comando git status"
+                        width="564" height="210" loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>É importante ressaltar que esse comando pode ser aplicado de diferentes formas, como:</dt>
+
+                        <dd>1- git add arq1.txt arq2.txt &nbsp;- Adicionando somente os arquivos desejados ao sistema de
+                            controle de versões.</dd>
+
+                        <dd>2- git add *.txt &nbsp;- Que adiciona todos os arquivos do tipo selecionado.</dd>
+
+                        <dd>3- git add . &nbsp;- Esse comando adiciona todos os arquivos existentes na pasta ao sistema
+                            de controle de versões.
+                        </dd>
+                    </div>
+                </dl>
+
+                <dl>
+                    <div class="container">
+                        <dt>4 - <b>git rm</b></dt>
+                        <dd>
+                            O comando git rm <b>remove os arquivos selecionados, parando o rastreamento pelo Git e
+                                excluindo-os da
+                                pasta local</b>. <i>Ao contrário do git add, que adiciona arquivos ao repositório, o git
+                                rm
+                                os marca para remoção no próximo commit</i>. É importante lembrar que o git rm não
+                            remove
+                            arquivos do histórico de commits. Se deseja remover um arquivo completamente do histórico,
+                            utilize o comando git reset.
+
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_grm.png" alt="Exemplo Git rm" title="Exemplo Git rm" width="444" height="270"
+                        loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>5 - <b>git commit</b></dt>
+                        <dd>Este comando tem a função de <b>salvar o estado atual dos seus arquivos no repositório
+                                git</b>. É comum e boa prática executar o comando git commit -m "mensagem" a fim de
+                            explicar paraos outros desenvolvedores de seu projeto a mudança que foi feita no arquivo.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitcommit.png" alt="Exemplo do comando git commit"
+                        title="Exemplo do comando git commit" width="550" height="260" loading="lazy">
+                </figure>
+
+                <div class="container">
+                    <p>Note que agora o estado atual do repositório Git foi salvo, podendo ser restaurado a qualquer
+                        momento.</p>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="controlederep">
+                <ul>
+                    <li>
+                        <h3>Controle de Repositório / Repositório Remoto</h3>
+                    </li>
+                </ul>
+                <dl>
+                    <div class="container">
+                        <dt>1 - <b>git remote</b></dt>
+
+                        <dd>
+                            Com esse comando, você pode <b>associar seu repositório local Git a um repositório na nuvem
+                                do Github</b>. É importante destacar que "git remote" tem inúmeras funções e usos no
+                            cotidiano de um programador, podendo ser usado como:
+                            <ul>
+
+                                <li>git remote -v: Exibe os nomes e URLs de todos os repositórios remotos configurados.
+                                </li>
+
+
+                                <li>git remote add origin &lt;url&gt; Adiciona um novo repositório remoto chamado
+                                    'origin' com o URL especificado.</li>
+
+                                <li>git remote rename origin upstream: Renomeia o repositório remoto 'origin' para
+                                    'upstream'.</li>
+                                <li>git remote remove origin: Remove o repositório remoto chamado 'origin' do seu
+                                    projeto Git.
+                                </li>
+                            </ul>
+
+                            <small>* Antes de demonstrar um exemplo prático, vamos ao comando git push, o "maior aliado"
+                                do git remote. </small>
+                        </dd>
+                    </div>
+                </dl>
+
+                <dl>
+                    <div class="container">
+                        <dt>2 - <b>git push</b></dt>
+
+                        <dd>O comando git push é <b>usado para enviar commits locais para um repositório remoto</b>.
+                            <i>Ele atualiza o repositório remoto</i> com as alterações que você fez no seu repositório
+                            local.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitremote_gitpush.png" alt="Exemplos Git Remote e Git Push"
+                        title="Exemplos Git Remote e Git Push" width="556" height="198" loading="lazy">
+                </figure>
+
+                <div class="container">
+                    <p>Note que <i>antes de enviar o repositório local a um ambiente remoto</i> <b>é necessário o uso do
+                            comando git remote</b>. Após seguir estas instruções, você já poderá observar seu
+                        repositório no github. </p>
+                </div>
+
+                <figure>
+                    <img src="img/ex_repremoto.png" alt="Exemplos Git Remote e Git Push"
+                        title="Exemplos Git Remote e Git Push" width="612" height="265" loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>3 - <b>git fetch</b></dt>
+                        <dd>O comando git fetch é usado para <b>buscar as últimas alterações do repositório remoto para
+                                o seu repositório local</b>. Quando você executa git fetch, o Git busca todas as
+                            alterações feitas no repositório remoto desde a última vez que você sincronizou. No entanto,
+                            <i>ele não mescla essas alterações com o seu trabalho atual, apenas atualiza as referências
+                                locais</i> para refletir o estado atual do repositório remoto. <b>Isso permite que você
+                                veja o que mudou no repositório remoto sem mesclar imediatamente as alterações com o seu
+                                trabalho local</b>.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitfetch.png" alt="Exemplo Git Fetch" title="Exemplo Git Fetch" width="447"
+                        height="185" loading="lazy">
+                </figure>
+
+                <div class="container">
+                    <p>* Utilizamos o comando "git diff", já demonstrado anteriormente, para conferir as mudanças no
+                        repositório remoto:</p>
+                </div>
+
+                <figure>
+                    <img src="img/gitdiff_fetch.png" alt="Git diff"
+                        title="Visualizar as alterações no repositório remoto." width="384" height="154" loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>4 - <b>git merge</b></dt>
+                        <dd>O comando git merge é usado para <b>integrar as alterações de uma branch para outra no
+                                Git</b>. Quando você executa git merge, <b>o Git combina as alterações das duas
+                                branches, aplicando as alterações da branch de origem na branch de destino</b>. Com
+                            as
+                            alterações mescladas e consolidadas na branch de destino, é possível trabalhar em
+                            equipe,
+                            combinando o trabalho feito em diferentes linhas de desenvolvimento dentro do
+                            mesmo projeto.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitmerge.png" alt="Exemplo Git Merge" title="Exemplo Git Merge" width="445"
+                        height="220" loading="lazy">
+                </figure>
+
+                <div class="container">
+                    <p>* Observe que agora não existem diferenças entre o repositório local e o repositório remoto:</p>
+                </div>
+
+                <figure>
+                    <img src="img/gitmergediff.png" alt="Git diff"
+                        title="Visualizar a igualdade entre repositórios local e remoto." width="256" height="130"
+                        loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>5 - <b>git pull</b></dt>
+                        <dd>O comando git pull <i>atua como uma fusão dos comandos git fetch e git merge</i>, ele
+                            <b>'puxa' a versão desejada do repositório remoto e integra diretamente no seu projeto
+                                local</b>. Seu uso mais comum é para <b>atualizar seu repositório local com as
+                                alterações mais recentes do projeto remoto,</b> porém, <i>também é possível puxar
+                                versões passadas especificando o commit desejado</i>.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitpull.png" alt="Exemplo Git Pull" title="Exemplo Git Pull" width="480"
+                        height="254" loading="lazy">
+                </figure>
+
+                <div class="container">
+                    <p>* Note que agora o repositório local está atualizado como o repositório remoto:</p>
+                </div>
+
+                <div class="captions">
+                    <p>Antes:</p>
+                    <div class="c3">
+                        <p>Depois:</p>
+                    </div>
+                </div>
+
+                <figure>
+                    <div class="alinhar">
+                        <img src="img/ex2_gp.png" alt="Antes do Git Pull" title="Antes do Git Pull" width="373"
+                            height="193" loading="lazy">
+
+                        <img src="img/ex3_gp.png" alt="Após o Git Pull" title="Após o Git Pull" width="373" height="193"
+                            loading="lazy">
+                    </div>
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>6 - <b>git clone</b></dt>
+                        <dd>O comando `git clone` <b>cria uma cópia local de um repositório Git remoto</b>. Baixando
+                            todos os arquivos e histórico de commits do repositório remoto para o seu sistema local,
+                            <i>permitindo que você trabalhe nele ou contribua para ele</i>.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitclone.png" alt="Exemplo Gitt Clone" title="Exemplo Git Clone" width="554"
+                        height="166" loading="lazy">
+                </figure>
+
+                <div class="container">
+                    <small>* É necessário possuir uma URL para clonar um repositório, podendo ser ela em formato
+                        HTTPS, SSH ou Github CLI. Você pode encontrá-la clicando no botão code, presente na página
+                        do repositório no Github, ele exibirá todas as chaves para clonar o projeto
+                        localmente.</small>
+                </div>
+
+                <dl>
+                    <div class="container">
+                        <dt>7 - <b>git branch</b></dt>
+                        <dd>O comando "git branch" é <b>usado para listar, criar ou deletar branches em
+                                um repositório Git</b>. Se usado sem argumentos, ele lista todas as branches
+                            presentes no repositório, destacando a atual com um asterisco (*). Para criar
+                            uma nova branch, você
+                            usa "git branch &lt;nome-da-branch&gt;. E para deletar uma branch, é " git
+                            branch -d &lt;nome-da-branch&gt;". </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <div class="alinhar">
+                        <img src="img/ex_gb.png" alt="Antes do Git Pull" title="Antes do Git Pull" width="421"
+                            height="109" loading="lazy">
+
+                        <img src="img/ex2_gb.png" alt="Após o Git Pull" title="Após o Git Pull" width="190" height="78"
+                            loading="lazy">
+                    </div>
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>8 - <b>git checkout</b></dt>
+                        <dd>O comando "git checkout" é comumente usado no Git para <b>alternar entre diferentes
+                                branches</b>, lembre-se que é necessário especificar a branch que você deseja acessar.
+                            Vale também destacar que <i>ele pode ser usado para criar novas branches a partir de commits
+                                específicos e para restaurar arquivos em um estado anterior</i>. Contudo, não é tão
+                            comumente aplicado para esses fins, devido a existência de outros comandos mais
+                            direcionados, como o git revert.
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitckout.png" alt="Exemplo Git Checkout" title="Exemplo Git Checkout" width="600"
+                        height="166" loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>9 - <b>git stash</b></dt>
+                        <dd>O comando "git stash" é <b>usado para temporariamente armazenar mudanças locais que ainda
+                                não
+                                foram commitadas, permitindo que você limpe seu diretório de trabalho sem perder suas
+                                alterações</b>. É muito <i>útil guardar suas mudanças em uma stash quando você precisa
+                                mudar de branch ou de ramo de desenvolvimento rapidamente sem comitar suas mudanças
+                                incompletas</i>, no entanto, atente-se que os arquivos modificados devem estar sendo
+                            monitorados pelo Git para serem armazenados corretamente em uma stash. Cabe também ressaltar
+                            as principais formas de usar git stash:
+
+
+                            <ul>
+                                <li>git stash - Cria uma stash que armazena temporariamente as mudanças locais.</li>
+
+                                <li>git stash apply &lt;stash_id&gt; - Utilizado para aplicar as mudanças armazenadas em
+                                    uma
+                                    stash no diretório de trabalho atual. <small>Note que você ainda precisará excluir
+                                        essa
+                                        stash após o uso.</small></li>
+
+                                <li>git stash drop &lt;stash_id&gt; - Remove permanentemente uma stash específica do
+                                    repositório.</li>
+
+                                <li>git stash show &lt;stash_id&gt; - Permite visualizar o conteúdo de uma stash
+                                    específica
+                                    ou listar todas as stashes disponíveis no repositório.</li>
+                            </ul>
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gstash.png" alt="Exemplo Git Stash" title="Exemplo Git Stash" width="559"
+                        height="541" loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>10 - <b>git rebase</b></dt>
+
+                        <dd>O comando "git rebase" é <b>usado para reescrever o histórico de commits de uma ramificação,
+                                movendo-os para uma nova base, geralmente outra branch, permitindo uma integração suave
+                                das
+                                alterações e uma história de commits mais linear</b>. É um comando <i>muito comum em
+                                casos em que
+                                temos várias pessoas trabalhando em um mesmo projeto</i>, por exemplo: Você está
+                            trabalhando com
+                            uma versão do projeto, porém, antes de terminar suas alteracões, um outro integrante de sua
+                            equipe atualizou a versão remota com modificações que ele mesmo fez, o comando git rebase é
+                            usado para que você possa integrar as alterações dele com as suas de forma limpa, sem
+                            prejudicar o histórico do projeto ou deletar partes desnecessariamente.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_grebase.png" alt="Exemplo Git Rebase" title="Exemplo Git Rebase" width="814"
+                        height="631" loading="lazy">
+                </figure>
+
+            </section>
+
+            <hr>
+
+            <section id="utilitarios">
+                <ul>
+                    <li>
+                        <h3>Utilitários</h3>
+                    </li>
+                </ul>
+                <dl>
+                    <div class="container">
+                        <dt>1 - <b>git help</b></dt>
+
+                        <dd>
+                            O comando git help <b>é usado para obter ajuda sobre os comandos do Git</b>. Quando você
+                            executa git help, ele exibe informações sobre como usar o Git, incluindo uma lista de
+                            comandos e opções disponíveis, além de fornecer uma descrição detalhada de cada comando. Se
+                            você deseja conferir os usos de um comando específico, basta digitar "git help
+                            nomedocomando" e o Git irá abrir um manual com a descrição e todos os usos do comando
+                            desejado.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_githelp.png" alt="Exemplo Git Help" title="Exemplo Git Help" width="716"
+                        height="828" loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>2 - <b>git show</b></dt>
+                        <dd>
+                            O comando git show <b>exibe informações sobre um commit específico, incluindo as mudanças
+                                introduzidas, as mensagens de commit e os metadados associados</b>. Observe que ele foca
+                            em mostrar informações detalhadas sobre um <i>único</i> commit especificado.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitshow.png" alt="Exemplo Git Show" title="Exemplo Git Show" width="660"
+                        height="174" loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>3 - <b>git diff</b></dt>
+
+                        <dd>
+                            O comando git diff <b>compara as diferenças entre o estado atual do seu repositório Git e o
+                                último commit, mostrando as mudanças entre eles</b>. <i>Também pode ser usado para
+                                checar as mudanças entre diferentes branchs e de commits passados para commits
+                                recentes</i>. Note que ele se difere ligeiramente do comando git show, visto que foca na
+                            diferença entre commits, e não em detalhar um especificamente.
+                        </dd>
+                    </div>
+                </dl>
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <div class="alinhar">
+                        <img src="img/ex2_gitdiff.png" alt="Exemplo Git Diff" title="Exemplo Git Diff" width="462"
+                            height="69" loading="lazy">
+
+                        <img src="img/ex_gitdiff.png" alt="Diferenças main atual e penúltimo commit"
+                            title="Diferenças main atual e penúltimo commit" width="371" height="166" loading="lazy">
+                    </div>
+                </figure>
+                <dl>
+                    <div class="container">
+                        <dt>4 - <b>git revert</b></dt>
+
+                        <dd>
+                            O comando "git revert" é <b>usado para desfazer alterações introduzidas por commits
+                                específicos, criando novos commits que invertem as mudanças desses commits
+                                anteriores</b>. Note que <i>é necessário especificar o commit que você deseja
+                                desfazer</i>, após isso, basta executar o comando e todas as alterações feitas nesse
+                            commit serão revertidas. É importante destacar também que <b>ele não altera o histórico
+                                existente do projeto, apenas adiciona esse novo commit eliminando as alterações
+                                desejadas</b>.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitrvrt.png" alt="Exemplo Git Revert" title="Exemplo Git Revert" width="482"
+                        height="279" loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>5 - <b>git reset</b></dt>
+
+                        <dd>
+                            Este comando é usado principalmente para redefinir o HEAD para uma determinada revisão. Ele
+                            pode ser usado para <b>desfazer commits, mover o HEAD para uma revisão específica e até
+                                mesmo alterar o estado da staging area</b>. <i>Git reset é mais intrusivo do que git
+                                revert, pois reescreve o histórico do projeto</i>. É útil para desfazer alterações
+                            locais antes
+                            de compartilhá-las com outros.
+                        </dd>
+                    </div>
+                </dl>
+
+                <div class="container">
+                    <small>
+                        * Se você mover o HEAD para um commit anterior usando git reset, os commits posteriores serão
+                        removidos do histórico, e o estado do seu diretório de trabalho será revertido para aquele
+                        commit específico. Isso pode ser útil para desfazer alterações ou reverter o projeto para um
+                        estado anterior.
+                    </small>
+                </div>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+                    <img src="img/ex_gitrst.png" alt="Exemplo Git Reset" title="Exemplo Git Reset" width="891"
+                        height="233" loading="lazy">
+                </figure>
+
+                <div class="container">
+                    <small>
+                        * Caso você queira reverter o HEAD do seu repositório definitivamente, basta agora executar o
+                        comando "git push -f origin main", ele irá realizar um force push, excluindo todo o histórico de
+                        commits no repositório remoto até o estado escolhido do projeto.
+                    </small>
+                </div>
+
+                <dl>
+                    <div class="container">
+                        <dt>6 - <b>git blame</b></dt>
+
+                        <dd>
+                            O comando "git blame" é <b>usado para visualizar a autoria de cada linha em um arquivo,
+                                mostrando quem modificou o arquivo pela última vez e em qual commit essa modificação foi
+                                feita</b>. Ele é <i>útil para rastrear responsabilidades e entender o histórico de
+                                alterações em um arquivo específico</i>, no entanto, o comando só consegue atuar sobre
+                            arquivos existentes e monitorados pelo git.
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+
+                    <img src="img/ex1_gblame.png" alt="Exemplo Git Blame" title="Exemplo Git Blame" width="840"
+                        height="73" loading="lazy">
+
+                    <img src="img/ex2_gblame.png" alt="Descrição das alterações feitas em cada commit no arquivo"
+                        title="Descrição das alterações feitas em cada commit no arquivo" width="842" height="73"
+                        loading="lazy">
+                </figure>
+
+                <dl>
+                    <div class="container">
+                        <dt>7 - <b>git tag</b></dt>
+
+                        <dd>
+                            O comando "git tag" é usado para marcar pontos específicos na história do seu repositório,
+                            como versões de lançamento. Essas "tags" são pontos de referência estáveis que podem ser
+                            usados para identificar versões específicas do seu código. As 3 principais maneiras de usar
+                            o comando são:
+                            <ul>
+                                <li>git tag -a "nomedatag" -m "mensagem da tag" - Usado para criar uma tag anotada e
+                                    fornecer uma mensagem descritiva junto a ela.</li>
+                                <li>git tag - Lista todas as tags existentes.</li>
+                                <li>git show "nomedatag" - Mostra informações específicas sobre a tag desejada.</li>
+                            </ul>
+                        </dd>
+                    </div>
+                </dl>
+
+                <figure>
+                    <figcaption>Exemplo:</figcaption>
+
+                    <img src="img/ex_gtag.png" alt="Exemplo Git Tag" title="Exemplo Git Tag" width="555" height="182"
+                        loading="lazy">
+                </figure>
+            </section>
+        </article>
+
+        <hr>
+
+        <article id="tutorialemvideo">
+            <h2>Tutorial em Vídeo - Criando seu primeiro repositório Git</h2>
+            <ul>
+                <li>
+                    <p><a href="video.html">Vídeo - Criando seu primeiro repositório Git</a></p>
+                </li>
+            </ul>
+            <table>
+                <tr>
+                    <th colspan="2">Criando seu Primeiro Repositório</th>
+                </tr>
+                <tr>
+                    <th><b>Comandos Utilizados</b></th>
+                    <th><b>Descrição do Comando</b></th>
+                </tr>
+                <tr>
+                    <td>git init</td>
+                    <td>Inicializa seu repositório Git</td>
+                </tr>
+                <tr>
+                    <td>git add .</td>
+                    <td>Adiciona todos os arquivos da pasta ao sistema de controle de versões</td>
+                </tr>
+                <tr>
+                    <td>git status</td>
+                    <td>Confere quais arquivos do seu repositório estão sendo monitorados pelo Git</td>
+                </tr>
+                <tr>
+                    <td>git commit -m</td>
+                    <td>Salva o estado atual dos seus arquivos no repositório Git</td>
+                </tr>
+                <tr>
+                    <td>git remote add origin "chavedoseurepositorio"</td>
+                    <td>Associa seu repositório local ao repositório remoto</td>
+                </tr>
+                <tr>
+                    <td>git push -u origin main</td>
+                    <td>Envia o estado atual do seu repositório local ao seu repositório remoto Git</td>
+                </tr>
+            </table>
+        </article>
+    </main>
+
+    <hr>
+
+    <footer>
+        &lt;&lt; &copy; Thiago Martins e Pedro Finochio &gt;&gt;
+    </footer>
+</body>
+
+</html>
